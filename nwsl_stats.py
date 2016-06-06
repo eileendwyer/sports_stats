@@ -75,12 +75,9 @@ def add_data():
     search_data()
 
 
-add_data()
 welcome()
 
 cursor.close()
 connection.close()
-
-
 
 
