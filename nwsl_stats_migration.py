@@ -8,21 +8,39 @@ cursor.execute("DROP TABLE if exists goalie_stats;")
 table_create_command = """CREATE TABLE goalie_stats (
     PlayerName varchar(30),
     TeamName varchar(30),
-    GamesPlayed numeric(3),
-    MinutesPlayed numeric(4),
-  ShotsonGoal numeric(3),
-  Saves numeric(3),
-  GA numeric(3),
+    GamesPlayed FLOAT (3),
+    MinutesPlayed FLOAT (4),
+  ShotsonGoal FLOAT (3),
+  Saves FLOAT (3),
+  GA FLOAT (3),
   GAA FLOAT (6),
-  SHO numeric(2)
+  SHO FLOAT (2)
   );"""
 
 cursor.execute(table_create_command)
 
-#for row in table_create_command:
+# for row in results:
+#    PlayerName = ()
+#    print(row[0])
+#    TeamName = ()
+#    print(row[1])
+#    GamesPlayed = ()
+#    print(row[2])
+#    Minutes = ()
+#    print(row[3])
+#    ShotsOnGoal = ()
+#    print(row[4])
+#    Saves = ()
+#    print(row[5])
+#    GA = ()
+#    print(row[6])
+#    GAA = ()
+#    print(row[7])
+#    SHO = ()
+#    print(row[8])
 
-#cursor.execute("INSERT INTO  goalie_stats VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s,);",\
-#                (PlayerName, TeamName, GamesPlayed, Minutes, ShotsonGoal, Saves, GA, GAA, SHO))
+#cursor.execute("INSERT INTO goalie_stats VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s,);",
+#                   (PlayerName, TeamName, GamesPlayed, Minutes, ShotsOnGoal, Saves, GA, GAA, SHO))
 
 cursor.execute("INSERT INTO goalie_stats VALUES"
                "('Michele Dalton', 'CHI', 12, 1080, 113, 47, 11, 0.917, 5),"
@@ -42,6 +60,7 @@ cursor.execute(" SELECT * FROM goalie_stats")
 results = cursor.fetchall()
 for row in results:
     print(row)
+
 
 cursor.close()
 connection.close()
